@@ -1,0 +1,100 @@
+# Copyright (c) 2021 HiHope Open Source Organization .
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import("//build/ohos.gni")
+
+ohos_prebuilt_etc("init.dayu.rc") {
+  source = "rootfs/init.dayu.rc"
+  module_install_dir = "etc/init"
+  install_images = [ "vendor" ]
+  part_name = "hihope_products"
+}
+
+
+ohos_prebuilt_etc("init.dayu.usb.rc") {
+  source = "rootfs/init.dayu.usb.rc"
+  module_install_dir = "etc/init"
+  install_images = [ "vendor" ]
+  part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("ueventd.rc") {
+  source = "rootfs/ueventd.rc"
+  install_images = [ "vendor" ]
+  module_install_dir = "./"
+  part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("fstab.dayu") {
+  source = "vendor/etc/fstab.dayu"
+  module_install_dir = "etc"
+  install_images = [ "vendor" ]
+  part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("vb_config_user.ini") {
+  source = "vendor/etc/vb_config_user.ini"
+  module_install_dir = "./"
+  install_images = [ "vendor" ]
+  part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("camera.rc") {
+ source = "vendor/etc/camera.rc"
+ module_install_dir = "etc/init"
+ install_images = [ "vendor" ]
+ part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("init.dayu_flash.rc") {
+ source = "vendor/etc/init.dayu_flash.rc"
+ module_install_dir = "etc/init"
+ install_images = [ "vendor" ]
+ part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("init.dayu_vdsp.rc") {
+ source = "vendor/etc/init.dayu_vdsp.rc"
+ module_install_dir = "etc/init"
+ install_images = [ "vendor" ]
+ part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("init.vibdrv.rc") {
+ source = "vendor/etc/init.vibdrv.rc"
+ module_install_dir = "etc/init"
+ install_images = [ "vendor" ]
+ part_name = "hihope_products"
+}
+
+ohos_prebuilt_etc("init.dayu.common.rc") {
+ source = "vendor/etc/init.dayu.common.rc"
+ module_install_dir = "etc/init"
+ install_images = [ "vendor" ]
+ part_name = "hihope_products"
+}
+
+group("rc_files") {
+  deps = [
+    ":fstab.dayu",
+    ":init.dayu.rc",
+    ":init.dayu.usb.rc",
+    ":ueventd.rc",
+    ":vb_config_user.ini",
+    ":camera.rc",
+    ":init.dayu_flash.rc",
+    ":init.dayu_vdsp.rc",
+    ":init.vibdrv.rc",
+    ":init.dayu.common.rc",
+  ]
+}

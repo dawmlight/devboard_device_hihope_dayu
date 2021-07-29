@@ -1,0 +1,12 @@
+# Copyright (C) 2021 HiHope Open Source Organization .
+
+import("//build/ohos.gni")
+
+print("dayu_group in")
+group("dayu_group") {
+  deps = [
+    "hisi_lib:hisi_lib",
+    "kernel:kernel",
+    "build:rc_files",
+  ]
+}

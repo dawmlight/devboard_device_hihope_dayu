@@ -1,0 +1,6 @@
+# fstab file.
+#<src>                                                  <mnt_point> <type>    <mnt_flags and options>                              <fs_mgr_flags>
+/dev/block/platform/soc/soc:ap-apb/71400000.sdio/by-name/userdata /data        f2fs noatime,nosuid,nodev,discard,inline_xattr,inline_data wait,fileencryption=aes-256-xts,check,reservedsize=128M
+/dev/block/platform/soc/soc:ap-apb/71400000.sdio/by-name/userdata /data        ext4 noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait
+/dev/block/platform/soc/soc:ap-apb/71400000.sdio/by-name/socko /mnt/vendor/socko ext4 ro,noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait
+/dev/block/platform/soc/soc:ap-apb/71400000.sdio/by-name/odmko /mnt/vendor/odmko ext4 ro,noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait

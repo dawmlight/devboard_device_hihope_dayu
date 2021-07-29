@@ -1,0 +1,5 @@
+#on post-fs
+#	insmod /mnt/vendor/socko/dayu_vdsp.ko
+#	trigger dayu-flash-ko
+
+
