@@ -1,0 +1,61 @@
+on post-fs
+    insmod /mnt/vendor/socko/stmvl53l0.ko
+    insmod /mnt/vendor/socko/tcs3430.ko
+    insmod /mnt/vendor/socko/ssd20xx_ts.ko
+
+#modify for ams calibration
+    chmod 666 /mnt/vendor/productinfo/tcs3430_calibration.txt
+#modify for tof calibration
+    chmod 666 /mnt/vendor/vl53l0_offset_calibration.file
+    chmod 666 /mnt/vendor/vl53l0_xtak_calibration.file
+	
+	insmod /mnt/vendor/socko/mali_gondul.ko
+#insmode synaptics TP ko
+#insmod /mnt/vendor/socko/synaptics_dsx_td4310.ko
+    insmod /mnt/vendor/socko/akm4377.ko
+#bypass the gpu during the prior_bringu
+#setprop ro.kernel.qemu 1
+#setprop ro.kernel.qemu.gles 0
+    chmod 0775 /mnt/vendor
+    chown system system /mnt/vendor
+    mkdir /mnt/vendor/productinfo 0771 system root
+    chown system system /vendor/productinfo
+    chmod 0771 /vendor/productinfo
+    chown system system /productinfo
+    chmod 0771 /productinfo
+    chmod 0666 /dev/mali0
+    chown system system /dev/mali0
+    chmod 0755 /sys/kernel/debug/tracing
+
+    chown system system /dev/iio:device0
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/iio/trigger/current_trigger
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/batch
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/logctl
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/calibrator_cmd
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/calibrator_data
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/enable
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/flush
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/iio
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/version
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/op_download
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/mag_cali_flag
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/sensorhub
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/raw_data_als
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/raw_data_ps
+    chown system system /sys/class/sprd_sensorhub/sensor_hub/light_sensor_calibrator
+
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/iio/trigger/current_trigger
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/batch
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/logctl
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/calibrator_cmd
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/calibrator_data
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/enable
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/flush
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/iio
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/version
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/op_download
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/mag_cali_flag
+    chmod 660 /sys/class/sprd_sensorhub/sensor_hub/sensorhub
+    chmod 666 /sys/class/sprd_sensorhub/sensor_hub/raw_data_als
+    chmod 666 /sys/class/sprd_sensorhub/sensor_hub/raw_data_ps
+    chmod 666 /sys/class/sprd_sensorhub/sensor_hub/light_sensor_calibrator

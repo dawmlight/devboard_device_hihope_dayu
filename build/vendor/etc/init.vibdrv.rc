@@ -1,0 +1,2 @@
+on post-fs
+    insmod /mnt/vendor/socko/sc27xx-vibra.ko

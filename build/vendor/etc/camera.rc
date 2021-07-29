@@ -1,0 +1,25 @@
+on post-fs
+    insmod /mnt/vendor/socko/dayu_sensor.ko
+    insmod /mnt/vendor/socko/dayu_flash_drv.ko
+    insmod /mnt/vendor/socko/dayu_camera.ko
+    insmod /mnt/vendor/socko/dayu_cpp.ko
+    insmod /mnt/vendor/socko/mmdvfs.ko
+    insmod /mnt/vendor/socko/dayu_fd.ko
+    trigger dayu-flash-ko
+
+on factorytest
+    insmod /mnt/vendor/socko/dayu_sensor.ko
+    insmod /mnt/vendor/socko/dayu_flash_drv.ko
+    insmod /mnt/vendor/socko/dayu_camera.ko
+    insmod /mnt/vendor/socko/dayu_cpp.ko
+    insmod /mnt/vendor/socko/mmdvfs.ko
+    insmod /mnt/vendor/socko/dayu_fd.ko
+    trigger dayu-flash-ko
+
+on cali-fs
+    insmod /mnt/vendor/socko/dayu_sensor.ko
+    insmod /mnt/vendor/socko/dayu_flash_drv.ko
+    insmod /mnt/vendor/socko/dayu_camera.ko
+    insmod /mnt/vendor/socko/dayu_cpp.ko
+    insmod /mnt/vendor/socko/mmdvfs.ko
+    trigger dayu-flash-ko

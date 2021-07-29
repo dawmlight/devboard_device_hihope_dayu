@@ -1,0 +1,11 @@
+on dayu-flash-ko
+    insmod /mnt/vendor/socko/flash_ic_sc2703.ko
+    insmod /mnt/vendor/socko/flash_ic_ocp8137.ko
+    insmod /mnt/vendor/socko/flash_ic_sy7807.ko
+    insmod /mnt/vendor/socko/flash_ic_sc2720.ko
+    insmod /mnt/vendor/socko/flash_ic_sc2721.ko
+    insmod /mnt/vendor/socko/flash_ic_wd3124da.ko
+    insmod /mnt/vendor/socko/flash_ic_wd3610da.ko
+    insmod /mnt/vendor/socko/flash_ic_aw3641.ko
+    insmod /mnt/vendor/socko/flash_ic_cp2155.ko
+

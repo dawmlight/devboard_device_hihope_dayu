@@ -1,0 +1,64 @@
+import init.${ro.hardware}.usb.rc
+
+on early-init
+# copy from goldfish
+    write /proc/sys/vm/min_free_kbytes 10240
+    loglevel 7
+
+on init
+    # mount debugfs
+    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
+
+    # switch USB to peripheral
+    write /sys/kernel/debug/hisi_inno_phy/role "peripheral"
+
+on fs
+    #mount_all /vendor/etc/fstab.Hi3559A
+    mount_all /vendor/etc/fstab.dayu
+    swapon_all /vendor/etc/fstab.dayu
+
+    # hos partition
+    #chown root root /hos
+    #chmod 777 /hos
+    #restorecon_recursive /hos
+
+on boot
+    chmod 777 /dev/ttyAMA2
+    chmod 775 /sys/class/rfkill/rfkill0/state
+    chmod 777 /dev/rtkbt_dev
+
+    chmod 0440 /proc/interrupts
+    chmod 0440 /proc/stat
+
+    chmod 0640 /dev/xt_qtaguid
+    chmod 0660 /proc/net/xt_qtaguid/ctrl
+    chmod 0440 /proc/net/xt_qtaguid/stats
+    chmod 666 /dev/mali0
+    chown system graphics /dev/mali0
+    chown system graphics /dev/graphics/fb0
+    chmod 666 /dev/ion
+    chown system system /dev/ion
+    # FIXME temp modify for nonencrypted
+    class_start main
+    class_start late_start
+
+
+# zygote need to be started after otapreopt which will be done on post-fs-data
+on zygote-start
+    # zygote is started in common init.rc
+    # and now we can continue initialize /data/
+
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/wifi 0771 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+
+#on property:sys.boot_completed=1 && property:sys.logbootcomplete=1
+#    chmod 0666 /dev/hal_ion_vb_server
+
+
+#service hi_server_msghdr /vendor/bin/server_msghdr
+#    class main
+#    user root
+#    group root system audio graphics
+#    oneshot
