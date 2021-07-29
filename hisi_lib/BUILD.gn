@@ -116,7 +116,13 @@ group("hisi_lib") {
     ":mpp_config",
     ":params",
     ":stream_supported_config",
+    ":bootanimation-800x1280",
   ]
+}
+
+ohos_prebuilt_etc("bootanimation-800x1280") {
+  source = "$GPL_SDK_ETC_DIR/bootanimation-800x1280.raw"
+  part_name = "hihope_products"
 }
 
 ohos_prebuilt_etc("params") {
